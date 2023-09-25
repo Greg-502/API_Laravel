@@ -57,7 +57,7 @@ class Handler extends ExceptionHandler
         }
         
         if($exception instanceof RouteNotFoundException){
-            return response()->json(["res" => false, "error" => "Inicie sesión para visualizar."], 401);
+            return response()->json(["res" => false, "error" => "Inicie sesión."], 401);
         }
         return parent::render($request, $exception);
     }

@@ -31,7 +31,7 @@ class AuthenticatorController extends Controller
 
     public function login(LoginRequest $request) 
     {
-        $user = User::where('email', $request->email)->first();
+        $user = User::with('roles')->where('email', $request->email)->first();
  
         if (!$user || !Hash::check($request->password, $user->password)) {
             throw ValidationException::withMessages([
@@ -40,14 +40,6 @@ class AuthenticatorController extends Controller
         }
  
         $token = $user->createToken($request->email)->plainTextToken;
-
-        // return response()->json([
-        //     'res' => true,
-        //     'data' => [
-        //         'user' => $user,
-        //         'token' => $token,
-        //     ]
-        // ], 200);
 
         return (new LoginResource($user))->additional([
             'token' => $token,

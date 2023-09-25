@@ -5,21 +5,23 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
 
-class RoleSeeder extends Seeder
+class RoleAsignadoSeeder extends Seeder
 {
     public function run()
     {
-        DB::table('roles')->insert([
+        DB::table('roles_asignados')->insert([
             [
-                'nombre' => 'admin',
+                'user_id' => 1,
+                'role_id' => 1,
                 'created_at' => now(),
                 'updated_at' => now()
             ],
             [
-                'nombre' => 'staff',
+                'user_id' => 1,
+                'role_id' => 2,
                 'created_at' => now(),
                 'updated_at' => now()
-            ]
+            ],
         ]);
     }
 }

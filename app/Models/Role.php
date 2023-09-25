@@ -10,7 +10,15 @@ class Role extends Model
     use HasFactory;
 
     protected $fillable = [
-        'nombre'
+        'nombre',
+        'descripcion'
+    ];
+
+    protected $hidden = [
+        'descripcion',
+        'pivot',
+        'created_at',
+        'updated_at'
     ];
 
     public function users()
