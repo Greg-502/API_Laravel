@@ -41,7 +41,7 @@ class RoleController extends Controller
     {
         return response()->json([
             'res' => false,
-            'message' => 'No se permite eliminar roles.'
-        ], 400);
+            'message' => "No se permite eliminar role $role->nombre."
+        ], 500);
     }
 }

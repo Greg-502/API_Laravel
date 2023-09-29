@@ -15,7 +15,7 @@ class ActualizarRoleRequest extends FormRequest
     {
         return [
             "nombre" => "required|unique:roles,nombre,".$this->route('role')->id,
-            "descripcion" => "nullable"
+            "descripcion" => "sometimes|string"
         ];
     }
 }

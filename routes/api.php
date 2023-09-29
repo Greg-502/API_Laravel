@@ -20,7 +20,9 @@ Route::post('register', [AuthenticatorController::class, 'register']);
 Route::post('login', [AuthenticatorController::class, 'login']);
 
 Route::group(['middleware' => ['auth:sanctum']], function() {
-    Route::apiResource('pacientes', PacienteController::class);
-    Route::apiResource('roles', RoleController::class);
     Route::post('logout', [AuthenticatorController::class, 'logout']);
+    Route::apiResources([
+        'pacientes' => PacienteController::class,
+        'roles' => RoleController::class
+    ]);
 });

@@ -14,7 +14,8 @@ class GuardarRoleRequest extends FormRequest
     public function rules()
     {
         return [
-            "nombre" => "required|unique:roles,nombre,"
+            "nombre" => "required|unique:roles,nombre,",
+            "descripcion" => "sometimes|string"
         ];
     }
 }
